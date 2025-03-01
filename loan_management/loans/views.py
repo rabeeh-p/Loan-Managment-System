@@ -23,6 +23,11 @@ class LoanAPIView(APIView):
 
     def get(self, request):
         try:
+            if request.user.role != "USER":
+                return Response(
+                    {"status": "error", "message": "Permission denied. Only users can access this data."}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
             loans = Loan.objects.filter(user=request.user)
             
             if not loans.exists():
@@ -52,6 +57,11 @@ class LoanAPIView(APIView):
  
     def post(self, request):
         try:
+            if request.user.role != "USER":
+                return Response(
+                    {"status": "error", "message": "Permission denied. Only users can access this data."}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
             serializer = LoanSerializer(
                 data=request.data, context={'request': request}
             )
@@ -87,6 +97,11 @@ class LoanForeclosureAPIView(APIView):
     
     def post(self, request, loan_id):
         try:
+            if request.user.role != "USER":
+                return Response(
+                    {"status": "error", "message": "Permission denied. Only users can access this data."}, 
+                    status=status.HTTP_403_FORBIDDEN
+                )
             loan = get_object_or_404(Loan, loan_id=loan_id, user=request.user)
 
             if loan.status != "ACTIVE":
