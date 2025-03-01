@@ -16,7 +16,9 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-default-key')
 DEBUG = True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOST").split(" ")
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOST").split(" ")
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOST", "").split()
+
 
 
  
