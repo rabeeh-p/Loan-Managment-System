@@ -88,9 +88,11 @@ python manage.py runserver
 - **Admin**: Can view all loans, delete loans, and manage loan records.
 
 
-Developer Information
-Rabeeh - Full Stack Developer (Django + React.js)
-📧 Email: rabeehp008@example.com
-🔗 GitHub: github.com/rabeeh-p
-📌 Skills: Backend Development, API Design, Database Management, Frontend (React.js)
-🚀 Passionate about building scalable and efficient applications.
+## Developer Information
+- **Name**: Rabeeh  
+- **Role**: Full Stack Developer (Django + React.js)  
+- **Email**: rabeehp008@example.com  
+- **GitHub**: [github.com/rabeeh-p](https://github.com/rabeeh-p)  
+- **Skills**: Backend Development, API Design, Database Management, Frontend (React.js)  
+- **Passion**: Building scalable and efficient applications 🚀  
+
