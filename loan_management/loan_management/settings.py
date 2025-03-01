@@ -86,6 +86,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'loan_management.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -113,6 +114,9 @@ WSGI_APPLICATION = 'loan_management.wsgi.application'
 DATABASES = {
     'default': dj_database_url.config(default='postgresql://loan_db_r219_user:pUj6q35KS79mqOoNDVboRko4H1RkTyXQ@dpg-cv1ftl1u0jms738d6b7g-a/loan_db_r219')
 }
+# DATABASES = {
+#     'default': dj_database_url.config(default='postgresql://loan_db_r219_user:pUj6q35KS79mqOoNDVboRko4H1RkTyXQ@dpg-cv1ftl1u0jms738d6b7g-a.oregon-postgres.render.com/loan_db_r219')
+# }
 
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
 EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
@@ -159,7 +163,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
