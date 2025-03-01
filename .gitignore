@@ -28,8 +28,8 @@ Thumbs.db
 *.pyd
 
 # Ignore media and static files (optional)
-media/
-staticfiles/
+# media/
+# staticfiles/
 
 
 
