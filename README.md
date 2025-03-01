@@ -72,15 +72,24 @@ python manage.py runserver
 | POST   | /api/loans/         | Apply for a loan        |
 | POST   | /api/loans/{id}/foreclose/ | Foreclose a loan |
 
-### Admin Endpoints
-| Method | Endpoint           | Description                   |
-|--------|--------------------|-------------------------------|
-| GET    | /api/admin/loans/  | View all loans (Admin only)  |
-| DELETE | /api/admin/loans/{id}/ | Delete a loan (Admin only) |
+### Admin Endpoints  
+| Method | Endpoint               | Description                              |  
+|--------|------------------------|------------------------------------------|  
+| GET    | /api/admin/loans/      | View all loans (Admin only)             |  
+| GET    | /api/admin/loans/{id}/ | View details of a specific loan (Admin only) |  
+| DELETE | /api/admin/loans/{id}/ | Delete a loan (Admin only)              |  
+
+
+
 
 ## Role-Based Access
 - **User**: Can apply for loans, view their loan details, and foreclose loans.
 - **Admin**: Can view all loans, delete loans, and manage loan records.
 
 
-
+Developer Information
+Rabeeh - Full Stack Developer (Django + React.js)
+📧 Email: rabeehp008@example.com
+🔗 GitHub: github.com/rabeeh-p
+📌 Skills: Backend Development, API Design, Database Management, Frontend (React.js)
+🚀 Passionate about building scalable and efficient applications.
