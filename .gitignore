@@ -1,0 +1,36 @@
+# Ignore Python bytecode
+__pycache__/ 
+*$py.class
+
+# Ignore environment variables and secrets
+.env
+*.env
+config/settings_local.py  # If you have a separate settings file for local development
+
+# Ignore database and migrations
+db.sqlite3
+*.sqlite3
+*.db
+*.sql
+
+# Ignore virtual environments
+env/
+
+
+# Ignore logs and temp files
+
+.DS_Store
+Thumbs.db
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore media and static files (optional)
+media/
+staticfiles/
+
+
+
+
