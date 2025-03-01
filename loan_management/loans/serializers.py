@@ -44,6 +44,8 @@ class LoanSerializer(serializers.ModelSerializer):
                 )
         return data
 
+
+
     def calculate_emi(self, amount, tenure, interest_rate):
         r = (interest_rate / 100) / 12   
         n = tenure
