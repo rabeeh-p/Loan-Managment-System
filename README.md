@@ -5,6 +5,7 @@ The Loan Management API is a Django-based backend system that enables users to a
 
 ## Features
 - User authentication and authorization (JWT-based)
+- OTP-based user verification
 - Loan application
 - View user's loan list
 - Loan foreclosure
