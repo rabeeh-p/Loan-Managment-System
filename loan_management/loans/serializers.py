@@ -18,24 +18,21 @@ class LoanSerializer(serializers.ModelSerializer):
     class Meta:
         model = Loan
         fields = ["loan_id", "user", "amount", "tenure", "interest_rate", 
-                  "monthly_installment", "total_interest", "total_amount", "payment_schedule"]
+                  "monthly_installment", "total_interest", "total_amount", "payment_schedule",'status']
 
  
 
     def validate_amount(self, value):
-        """Ensure the loan amount is between ₹1,000 and ₹100,000."""
         if value < 1000 or value > 100000:
             raise serializers.ValidationError("Loan amount must be between ₹1,000 and ₹100,000.")
         return value
     
     def validate_interest_rate(self, value):
-        """Ensure interest rate is positive and between 1% and 100%."""
         if value <= 0 or value > 100:
             raise serializers.ValidationError("Interest rate must be between 1% and 100%.")
         return value
 
     def validate(self, data):
-        """Prevent a user from taking another loan with the same amount if they have an active loan."""
         request = self.context.get('request')
         if request and request.user.is_authenticated:
             user = request.user

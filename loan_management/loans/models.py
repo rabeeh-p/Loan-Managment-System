@@ -1,6 +1,7 @@
 from django.db import models
 import uuid
 from users.models import *
+from django.db.models import Sum
 # Create your models here.
 
 
@@ -27,6 +28,17 @@ class Loan(models.Model):
                     self.loan_id = new_loan_id
                     break
         super().save(*args, **kwargs)
+
+    @property
+    def amount_paid(self):
+        """ Calculate total amount paid from PaymentSchedule """
+        paid_amount = self.payment_schedule.aggregate(Sum('amount'))['amount__sum']
+        return paid_amount if paid_amount else 0.00
+
+    @property
+    def amount_remaining(self):
+        """ Calculate remaining amount to be paid """
+        return self.total_amount - self.amount_paid if self.total_amount else 0.00
     
 
 
