@@ -31,6 +31,12 @@ class LoanSerializer(serializers.ModelSerializer):
         if value <= 0 or value > 100:
             raise serializers.ValidationError("Interest rate must be between 1% and 100%.")
         return value
+    
+    def validate_tenure(self, value):
+        if not isinstance(value, int) or value < 3 or value > 24:
+            raise serializers.ValidationError("Tenure must be a whole number between 3 and 24 months.")
+        return value
+
 
     def validate(self, data):
         request = self.context.get('request')

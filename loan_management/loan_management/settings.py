@@ -13,11 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'your-default-key')
 
 
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
-# ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOST").split(" ")
-# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOST", "").split()
+
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "localhost 127.0.0.1").split()
 
 
@@ -88,36 +86,12 @@ WSGI_APPLICATION = 'loan_management.wsgi.application'
 
 
 
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-
-
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.getenv('DB_NAME'),
-#         'USER': os.getenv('DB_USER'),
-#         'PASSWORD': os.getenv('DB_PASSWORD'),
-#         'HOST': os.getenv('DB_HOST'),
-#         'PORT': os.getenv('DB_PORT'),
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.config(default='postgresql://loan_db_r219_user:pUj6q35KS79mqOoNDVboRko4H1RkTyXQ@dpg-cv1ftl1u0jms738d6b7g-a/loan_db_r219')
 }
-# DATABASES = {
-#     'default': dj_database_url.config(default='postgresql://loan_db_r219_user:pUj6q35KS79mqOoNDVboRko4H1RkTyXQ@dpg-cv1ftl1u0jms738d6b7g-a.oregon-postgres.render.com/loan_db_r219')
-# }
+
+
 
 EMAIL_BACKEND = os.getenv("EMAIL_BACKEND", "django.core.mail.backends.smtp.EmailBackend")
 EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
@@ -127,10 +101,7 @@ EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = os.getenv("DEFAULT_FROM_EMAIL", EMAIL_HOST_USER)
 
-# postgresql://loan_db_r219_user:pUj6q35KS79mqOoNDVboRko4H1RkTyXQ@dpg-cv1ftl1u0jms738d6b7g-a/loan_db_r219
 
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -148,8 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -160,21 +130,10 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
-
-# STATICFILES_DIRS should point to your app-level static files (DO NOT include STATIC_ROOT here)
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-# ]  
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
