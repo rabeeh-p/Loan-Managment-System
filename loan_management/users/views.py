@@ -278,7 +278,7 @@ class AdminLoanDeleteView(APIView):
 
             return Response(
                 {"status": "success", "message": "Loan deleted successfully"},
-                status=HTTP_204_NO_CONTENT
+                status=HTTP_200_OK  
             )
 
         except Loan.DoesNotExist:
